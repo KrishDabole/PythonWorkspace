@@ -1,12 +1,6 @@
-FROM ubuntu:20.04
-RUN apt update
-RUN apt install -y software-properties-common
-RUN add-apt-repository ppa:deadsnakes/ppa
-RUN apt install -y python3.11
-RUN apt install -y python3-pip
-RUN apt update
+FROM python
 ADD . ./opt
 RUN pip install --no-cache-dir -r /opt/requirements.txt
 ENV PORT=${PORT}
 EXPOSE ${PORT}
-ENTRYPOINT ["python3.11", "/opt/main.py", "$PORT"]
+ENTRYPOINT ["python", "/opt/main.py", "$PORT"]
