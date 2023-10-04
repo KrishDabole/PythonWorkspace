@@ -1,4 +1,4 @@
-FROM python:3.12-windowsservercore-1809
+FROM python:3.11.6-alpine3.18
 ADD . ./opt
 RUN pip install --no-cache-dir -r /opt/requirements.txt
 ENV PORT=${PORT}
